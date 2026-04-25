@@ -52,9 +52,8 @@ def detect_increases(previous: dict, current: dict) -> dict:
         for facility, curr_count in facilities.items():
             if curr_count is None:
                 continue
-            prev_count = prev_city.get(facility)
-            if prev_count is None:
-                continue
+            # 前回データがない(初回 or 新施設)場合は 0 として扱う
+            prev_count = prev_city.get(facility) or 0
             if curr_count > prev_count:
                 increases.setdefault(city, []).append(
                     {"facility": facility, "prev": prev_count, "curr": curr_count}
