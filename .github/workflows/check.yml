@@ -25,7 +25,7 @@ jobs:
       - name: Run checker
         env:
           LINE_CHANNEL_ACCESS_TOKEN: ${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}
-          LINE_GROUP_ID: ${{ secrets.LINE_GROUP_ID }}
+          LINE_GROUP_ID: ${{ secrets.LINE_USER_ID }}
         run: python main.py
 
       - name: Commit and push updated data
